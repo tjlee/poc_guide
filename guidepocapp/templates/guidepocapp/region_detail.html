@@ -1,0 +1,14 @@
+<h4>{{ region_detail.region_name }}</h4>
+<p>{{ region_detail.description }}</p>
+
+<p>here we need also get list of places to ski</p>
+{% if places_list %}
+    <ul>
+        {% for place in places_list %}
+            <li><a href="{% url 'place details' region_detail.id place.id %}"> {{ place.place_name }}</a></li>
+        {% endfor %}
+
+    </ul>
+{% else %}
+    <p>No places in this region</p>
+{% endif %}
